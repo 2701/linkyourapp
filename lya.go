@@ -60,31 +60,6 @@ func root(w http.ResponseWriter, r *http.Request) {
 
 var appLinkTemplates = template.Must(template.ParseFiles("templates/index.html"))
 
-// var appLinkTemplate = template.Must(template.New("appLink").Parse(`
-// <html>
-//   <head>
-//     <title>AppLinks!</title>
-//   </head>
-//   <body>
-//  {{range $i, $appLink := .AppLinks}}
-//    <ul>{{index $.Keys $i}}
-//      <li>Default Link: {{$appLink.DefaultLink}}</li>
-//    	<li>iOS Link: {{$appLink.IOSLink}}</li>
-//    	<li>Android Link: {{$appLink.AndroidLink}}</li>
-//    </ul>
-// {{else}}
-// 	<p>No links in the datastore yet</p>
-//  {{end}}
-//     <form action="/add" method="post">
-//       <div><label>Default Link:</label> <input type="text" name="DefaultLink" size="60"></input></div>
-//       <div><label>iOS Link:</label> <input type="text" name="IOSLink" size="60"></input></div>
-//       <div><label>Android Link:</label> <input type="text" name="AndroidLink" size="60"></input></div>
-//       <div><input type="submit" value="AddLink"></div>
-//     </form>
-//   </body>
-// </html>
-// `))
-
 func add(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
 	// TODO: We could do this validation with https://github.com/gorilla/schema
