@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link Your App</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Link Your App!</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-8 medium-8 columns">
+        <h5>Give us your links!:</h5>
+        
+        <div class="row">
+          <div class="large-12 columns">
+            {{range $i, $appLink := .AppLinks}}
+              <ul>{{index $.Keys $i}}
+                <li>Default Link: {{$appLink.DefaultLink}}</li>
+                <li>iOS Link: {{$appLink.IOSLink}}</li>
+                <li>Android Link: {{$appLink.AndroidLink}}</li>
+              </ul>
+            {{else}}
+              <p>No links in the datastore yet</p>
+            {{end}}
+          </div>
+        </div>
+        
+        <form action="/add" method="post">
+          <div class="row">
+            <div class="large-12 columns">
+              <div><label>Default Link:</label> <input type="text" name="DefaultLink" size="60"></input></div>
+              <div><label>iOS Link:</label> <input type="text" name="IOSLink" size="60"></input></div>
+              <div><label>Android Link:</label> <input type="text" name="AndroidLink" size="60"></input></div>
+              <div><input class="button" type="submit" value="AddLink"></div>
+            </div>
+          </div>
+        </form>
+
+      </div>     
+
+      <div class="large-4 medium-4 columns">
+				<div class="panel">
+        	<h5>QR Codes a porrón!</h5>
+        	<p>Lorem fistrum qué dise usteer mamaar qué dise usteer jarl ese hombree por la gloria de mi madre ese pedazo de. No puedor mamaar a peich a wan a gramenawer fistro pecador la caidita. </p>
+        </div>
+      </div>
+    </div>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
